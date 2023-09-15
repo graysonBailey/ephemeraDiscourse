@@ -1,0 +1,135 @@
+<html translate="no">
+
+<head>
+  <meta charset="UTF-8">
+  <title>adiscourse.net</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+  <script src="main.bundle.js"></script>
+  <style>
+    body {
+      padding: 0;
+      margin: 10;
+    }
+  </style>
+</head>
+
+
+<body style="margin: 0; overflow: hidden">
+
+  <div id="back" style="position: absolute; top: 0; left: 0;z-index:-2"></div>
+  <div id="low" style="position: absolute; top: 0; left: 0;z-index:-1"></div>
+  <div id="content" style="position: absolute; top: 0; left: 0;"></div>
+  <div id="overlay" style="position: absolute; top: 0; left: 0;"></div>
+
+  <div class="right-cascade away" id="rightCascade">
+    <div >
+      <span id="searchToggle" class=" rc-con button darkhorse">search^Toggle</span>
+
+    </div>
+    <span id="bump" style="color:rgba(47,230,240,1);font-size: 8pt;top:8vh" class="away">...search a key to return all ELEMENTS with the key internal</span>
+
+    <input type="text" id="searchKey" name="seakKey" class="rc-con rc-Input away">
+    <span id="rp-search" class="rc-con rc-But away" >--- search_units ---</span>
+    <div id="searchItems" class="rc-Body away" onclick=event.stopPropagation()>
+
+    </div>
+  </div>
+
+  <div class="left-cascade noselect" id="leftCascade">
+    <div id="discourseLoad" class="lc-load lc-con button current">
+      <span>() => loadDiscourses()</span>
+    </div>
+    <div id="switchLoad" class="lc-load lc-con button away darkhorse">
+      <span>() => switch()</span>
+    </div>
+    <div id="gp-b" class="lc-top lc-con button">
+      <span>{. _ geist-face _ .}</span>
+    </div>
+    <div id="rp-b" class="lc-mid lc-con button">
+      <span>< _ verbindungs-face _ .>      </span>
+    </div>
+    <div id="appendix" class="lc-bottom">
+      <span id="instructions"></span>
+    </div>
+    <div id="printData" class="lc-bottomAlMost lc-con button darkhorse away">
+      <span>{getSTATE}</span>
+    </div>
+    <div id="downData" class="lc-bottomMost lc-con button darkhorse">
+      <span>[downloadFullData]</span>
+    </div>
+  </div>
+
+
+  <div class="top-cascade noselect">
+    <div class=tc-con style="text-align:left">
+      <span id="fs" class=button> ,,-{}-,, </span>
+    </div>
+    <div class="tc-con" style="color: rgb(47,230,240)">
+        <span><b>{adiscourse.net}: </b><i> networked discursion </i></span>
+    </div>
+    <div class="tc-con">
+      <span>discourseSpace:</span><span id="filterKey">**</span>
+    </div>
+    <div class="tc-con">
+      <span>vertical position:</span><span id="vertPos" style="color:pink">0</span>
+      <span style="font-size:5pt"> scroll speed </span><span id="vert30" class=button  style="font-size:5pt">. 30</span><span id="vert60" class=button  style="font-size:5pt">/ 60</span><span id="vert90" class=button  style="font-size:5pt">/ 90</span>
+    </div>
+    <div class= "tc-con">
+      <a href = "https://github.com/graysonBailey/adiscourse.net" target="_blank" id="gitLink" class=button > how</a> <span>- / -</span> <span id="about-this-website" class = button>what</span>
+    </div>
+  </div>
+
+
+  <div id="about-window-overlay" class="window-overlay animated disabled no-select">
+    <div id="about-window-overlay-close" class="overlay-close-button" > ✕ </div>
+    <div class="about-text no-select"> <span>=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</span>
+      <span style="font-size: 20px"><b>{adiscourse.net}</b></span>
+      <span>=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</span>
+      <span><i>"Whoever produces in the act of consumption has no real acquaintance with books."</i><br>Friedrich Kittler, Aufschreibsysteme 1800/1900</span>
+
+
+
+      <span style="color:black !important">{adiscourse.net} is an engagement with the dialetheic condition of the discursive field, an oscillation between incoherent overdetermination and coherent delimitation, without attempting to hierarchically simplify discourse into underlying parts or overriding assemblies.
+      </span>
+      <span style="color:black !important">Asynchronous and collaborative discourse implies a breaking down of the inherited practices which privilege final-formats and static discourse objects, substituting an interminable negotiation between withdrawn surplus and the momentary isolation of discursive “states”. The discourse, similar to any database or quantum object, cannot be judged in terms of completion, and can only be examined or measured through attenuation and intervention.
+      </span>
+      <span style="color:black !important">Disrupting any chance for a linear organization of discourse, {adiscourse.net} is a dissolution of meta-structure into the flat ontology of discursive unit objects. In contrast to the values of data fetishism, non-authorial contribution and the negation of resolved outcomes resist unitary metrics and performatively enact the conditions of “unfixity” within discursive exchange.
+      </span>
+
+      <img src= "https://static1.squarespace.com/static/51ccdae9e4b08c2dba697321/t/5f5a778ffdd82b357a767cb2/1599764377525/Untitled-1-01.png?format=750w" style="left:-30px;position:relative;width:600"/>
+
+      <span> As a part of a larger project, {adiscourse.net} observes the material spaces and practices of discourse as an interface, as a space of engagement, and as a mode of production
+      </span>
+
+      <span> The web interface involves the development of a network tool - this network tool - which provides for asynchronous contributions without presence of the author.
+      </span>
+      <img src= "https://static1.squarespace.com/static/51ccdae9e4b08c2dba697321/t/5f5a6c9e29cda41565e34be1/1599761576673/piezo8slow.gif?format=750w" style="width: 600; position: relative; text-align:center;display: block; left:30px"/>
+      <span> The space of engagement involves the design of temporary organizations which push beyond the homogenized space of office-researcher and return to a custom arrangement of necessary tools for interaction and production.
+      </span>
+      <img src= "https://static1.squarespace.com/static/51ccdae9e4b08c2dba697321/t/5f5a81c7604a0f005e732cb5/1599767031122/adiscoursespace6004Color.gif?format=750w" style="width: 600; position: relative; text-align:center;display: block; left:30px"/>
+      <span> The production of tactile outcomes involves a custom-built pen plotter for continuous printing of the discourse states derived from the interface.
+      </span>
+      <img src= "https://static1.squarespace.com/static/51ccdae9e4b08c2dba697321/t/5f5b889588070174f0f73ab6/1599834307864/OutputForever.gif?format=750w" style="width: 600; position: relative; text-align:center;display: block; left:30px"/>
+      <span> - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      </span>
+      <span>{adiscourse.net} is exactly that - <i>a</i> discourse among <i>many</i> within an undulating discursive field. By no means is this a suggested unitary manner of discursive exchange, but a project based around the idea that proliferative practices will allow for strange negotiations to take place and create an anarchic network of institial spaces and practices. As within any anarchic practice, it must be consistenly legitimized or negated, based on what is working now. No system deserves to be sustained, and none ever could be.
+      </span>
+    </div>
+  </div>
+
+  <!-- <span style="color:black !important">
+    <b>[discourse] </b> : in broad strokes, {adiscourse.net} is an examination of the various material and immaterial practices of discourse - between one user and another, but also between client and server. The examination of discourse is important to every separated "discipline", and we should be finding better ways for producing discourse than new book deals, overwrought conferences or social media signaling. New moments will require specific losses - the validations of likes or editorial acceptance - and must reach further into how we use technology to build and ruin ideas in a slow real-time.
+  </span>
+  <span style="color:black !important">
+    <b>[states]</b> : traditionally, critical discourse comes in "volumes" and renewed "editions", but {adiscourse.net} deals in "states" - a much more digital and natural form. Interacting with the irresolved database means adding and reacting, but also looking at isolated frames of the discourse [getSTATE]. These states are frozen images - a little more coherent, but with a recognized loss. From one moment to the next they might be identical or drastically changed, just like plays in the evolution of a Go game.
+  </span>
+  <span style="color:black !important">
+    <b>[anarchy]</b> : {adiscourse.net} is as attempt at materializing anarchist practice within the sphere of critical discourse production. Negotiating meanings, truth-concensuses and orientations of the network require an anarchic set of values - ones which constantly negotiate the terms between autonomy, social responsibility and solidarity. These exercises must take place in the streets, but also on the net. Foremost, they need to be pursued within each small area, creating novel interstitial spaces in which queer forms of action can be produced and engaged... ...and dismantled when necessary.
+  </span>
+  <span style="color:black !important"> -->
+
+</body>
+</html>
