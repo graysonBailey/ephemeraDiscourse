@@ -12,7 +12,7 @@ var io = socket(server);
 console.log("It's working! It's working!");
 
 var entire = new Datastore({
-  filename: 'ephemera.db',
+  filename: 'CF.db',
   autoload: true
 });
 
