@@ -19,53 +19,6 @@ var entire = new Datastore({
   autoload: true
 });
 
-// entire.remove({ $not: { db: 'metaDiscourse' }}, { multi: true }, function (err, numRemoved) {
-// });
-
-
-// entire.find({}, (err, docs) => {
-//   if (err) {
-//     console.log("couldn't change database...")
-//     response.end();
-//     return;
-//   }
-//
-// console.log(docs.length)
-//
-// for(let each in docs){
-//   if(docs[each].p.y > 8000){
-//     let thisU = docs[each].u
-//     let nextY = docs[each].p.y -4000
-//     let nextX = docs[each].p.x
-//     let newPos = {x:nextX,y:nextY}
-//
-//     entire.update({ u: thisU }, { $set: { p: newPos } }, {}, function (){})
-//
-//   }
-//
-//
-//
-// }
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 io.on('connection', newConnection);
 
 app.get('/:id',(req, res) => {
@@ -95,9 +48,6 @@ app.get('/aTE/all', (req,res) => {
     res.send(docs)
   })
 })
-
-
-
 
 
 function newConnection(socket) {
