@@ -7,8 +7,12 @@ const path = require('path')
 
 var app = express();
 app.use(express.static('dist'));
-var server = app.listen(80);
+
+const port = process.env.PORT || 80
+
+var server = app.listen(port, () => console.log(`Listening on ${port}`));
 var io = socket(server);
+
 console.log("It's working! It's working!");
 
 var entire = new Datastore({
