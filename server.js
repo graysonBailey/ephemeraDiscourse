@@ -8,7 +8,7 @@ const path = require('path')
 var app = express();
 app.use(express.static('dist'));
 
-const port = process.env.PORT || 80
+const port = process.env.PORT || 8080;
 
 var server = app.listen(port, () => console.log(`Listening on ${port}`));
 var io = socket(server);
