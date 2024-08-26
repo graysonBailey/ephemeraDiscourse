@@ -9,7 +9,7 @@ var app = express();
 app.use(express.static('dist'));
 
 
-var server = app.listen(80, () => console.log(`Listening on ${port}`));
+var server = app.listen(80, () => console.log(`Listening`));
 var io = socket(server);
 
 console.log("It's working! It's working!");
