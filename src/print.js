@@ -8,7 +8,8 @@ let leftMargin = 30
 let inbetweenYMargin = 50
 let inbetweenXMargin = 50
 let plotWidth = 1123
-let plotHeight = 1589
+let plotHeight = 1200
+//let plotHeight = 1589
 let wholeString = []
 let spaceTime = []
 let sets
@@ -65,15 +66,15 @@ window.onload = function() {
   spaceTime.push(sets.join(' , '))
   spaceTime.push(Date.now())
 
-  document.getElementById('PlotterPrint').onclick = () => {
-    state.writeNotes()
-    state.save("aDiscourseSTATE" + sets + Date.now() + ".svg")
-  }
+//  document.getElementById('PlotterPrint').onclick = () => {
+//    state.writeNotes()
+//    state.save("aDiscourseSTATE" + sets + Date.now() + ".svg")
+//  }
 
   document.getElementById('PDFprint').onclick = () => {
     document.getElementById('JSONoutput').classList.add('away')
     document.getElementById('PDFprint').classList.add('away')
-    document.getElementById('PlotterPrint').classList.add('away')
+//    document.getElementById('PlotterPrint').classList.add('away')
     window.print()
   }
 
@@ -204,6 +205,8 @@ const state = new p5((p) => {
       p.strokeWeight(1)
 
       p.noFill()
+        
+        //RELATIONS DRAW
       for (let each in origin) {
         if (origin[each].r.length > 0) {
           let theRelated = origin.filter(elem => origin[each].r.includes(elem.u))
@@ -226,7 +229,6 @@ const state = new p5((p) => {
           // }
           ////////////////////////////////
 
-
           for (let those in theRelated) {
             p.line(origin[each].p.x + 200, origin[each].p.y + 20,theRelated[those].p.x + 200, theRelated[those].p.y + 20)
           }
@@ -237,7 +239,6 @@ const state = new p5((p) => {
               externals.push(origin[each].r[every])
             }
           }
-
 
           if(externals.length>0){
             p.textSize(10)
@@ -253,9 +254,7 @@ const state = new p5((p) => {
                 p.text(externalsJoined, origin[each].p.x-200, origin[each].p.y+50, 199,300)
             } else{
               p.text("e x t e r n a l :", origin[each].p.x+450, origin[each].p.y+40)
-
-                p.text(externalsJoined, origin[each].p.x+450, origin[each].p.y+50, 199, 300)
-
+              p.text(externalsJoined, origin[each].p.x+450, origin[each].p.y+50, 199, 300)
             }
           }
         }
@@ -408,16 +407,13 @@ const back = new p5((p) => {
       for (let i = 400; i < cnv.height; i += 20) {
         p.strokeWeight(.1)
         p.line(0, i, plotWidth, i)
-        if(i % 10 == 0){
 
-          p.line
-        }
       }
-      for (let i = 0; i < origin.length; i++) {
-        p.noStroke();
-        p.fill(255);
-        p.rect(origin[i].p.x - 5, origin[i].p.y - 5, 410, plotHeights[i] + 5)
-      }
+//      for (let i = 0; i < origin.length; i++) {
+//        p.noStroke();
+//        p.fill(255);
+//        p.rect(origin[i].p.x - 5, origin[i].p.y - 5, 410, plotHeights[i] + 5)
+//      }
       p.writeThatTitleBack()
     }, 2000)
   }
